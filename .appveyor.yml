@@ -1,4 +1,6 @@
 environment:
+  PROJECT_NAME: "cu2qu"
+  PROJECT_VERSION: "1.6.4"
   CU2QU_WITH_CYTHON: 1
   TOXENV: "py-cy"
   TWINE_USERNAME: "anthrotype"
@@ -54,7 +56,7 @@ install:
   - pip install --upgrade setuptools cython wheel
 
   # build wheel from the sdist published on PyPI
-  - pip wheel --no-deps --no-cache-dir --wheel-dir dist --no-binary cu2qu cu2qu
+  - pip wheel --no-deps --no-cache-dir --wheel-dir dist --no-binary %PROJECT_NAME% "%PROJECT_NAME%==%PROJECT_VERSION%"
 
   # get the full path to the compiled wheel (ugly but works)
   - dir /s /b dist\cu2qu*.whl > wheel.pth

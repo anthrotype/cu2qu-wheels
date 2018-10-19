@@ -1,5 +1,7 @@
 env:
   global:
+    - PROJECT_NAME="cu2qu"
+    - PROJECT_VERSION="1.6.4"
     - BUILD_DEPENDS="cython"
     - PLAT=x86_64
     - UNICODE_WIDTH=32
@@ -69,7 +71,7 @@ before_install:
   - before_install
 
 install:
-  - build_index_wheel cu2qu $PLAT
+  - build_index_wheel "${PROJECT_NAME}==${PROJECT_VERSION}" $PLAT
 
 script:
   - install_run $PLAT
