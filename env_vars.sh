@@ -1,0 +1,1 @@
+export CU2QU_WITH_CYTHON=1
