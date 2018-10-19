@@ -71,7 +71,7 @@ before_install:
   - before_install
 
 install:
-  - build_index_wheel "${PROJECT_NAME}==${PROJECT_VERSION}" $PLAT
+  - build_index_wheel "${PROJECT_NAME}==${PROJECT_VERSION}"
 
 script:
   - install_run $PLAT
