@@ -1,6 +1,6 @@
 environment:
   PROJECT_NAME: "cu2qu"
-  PROJECT_VERSION: "1.6.5"
+  PROJECT_VERSION: "1.6.6"
   CU2QU_WITH_CYTHON: 1
   TOXENV: "py-cy"
   TWINE_USERNAME: "anthrotype"

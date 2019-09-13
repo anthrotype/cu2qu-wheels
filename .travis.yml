@@ -1,7 +1,7 @@
 env:
   global:
     - PROJECT_NAME="cu2qu"
-    - PROJECT_VERSION="1.6.5"
+    - PROJECT_VERSION="1.6.6"
     - BUILD_DEPENDS="cython"
     - PLAT=x86_64
     - UNICODE_WIDTH=32
