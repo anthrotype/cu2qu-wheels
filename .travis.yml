@@ -8,18 +8,11 @@ env:
     - TWINE_USERNAME="anthrotype"
     - secure: JM0mnZrtWWc1e1ujsZPzLg+1aiSMM1dDYY41yyjGT1VLt839QspcCtq0LoRKudhQ29x5PgP8spCzZYp5EioEqh5lkd4m5ymfRdyrp2TnL74QWDJsTpx57qOjwpIyWM+PubXrzcns1TjVTK1gcyg2TqsbWrhKT7ZLpH0YhyH1f3UUdkuzYcGEsNeu4JXwY6qPrf+ypoyB8WFnd3y3v/vsd4mi+XWuoUQ5Q19UeJ7iv7s6ghRDD75EHqadw3yywYdVYOGtjWxu+VEhrLciMhjovaAFJKPcIHtfScmtK/mHeORuRBGDnsWvYNHXXXnxCqyEy/YohwAtMt8RsGe0jRPu8RamJXUqIdvbJPaTscVAsG7QSNWoSXSGeGbTDFVyXcTLTkHWw8CXf54J14GZbCRmuxJZ0PTRpdb9h3vJ+AQ/nWRZm4hSM3PwOja4O5wi6rKOaefMbXlnuaBd6XiI7xql9rbGTtYNVL1rAfiqK9G04TuNQXhJxibn8LOO9LWdEsl9SdH/2BrltNHuWWiM6RvS2evf/shitAgd4uiJ7pFZKNlEpR+YFP8Tcstw4oWd/GDHLOkgRmJbMBWx6bo/AqakUQ7lLbTpKcRKB5jS34ByfAuuQdvS04k2NigFiCyLZLjHd284TSUqhrzVBRwZ1dRuYkAP8CeCeHExSaz3A+luAH0=
 
-language: python
-# The travis Python version is unrelated to the version we build and test
-# with.  This is set with the MB_PYTHON_VERSION variable.
-python: 3.5
-sudo: required
-dist: trusty
+language: generic
+dist: xenial
 services: docker
 
 matrix:
-  exclude:
-    # Exclude the default Python 3.5 build
-    - python: 3.5
   include:
     - os: linux
       env:
@@ -52,18 +45,25 @@ matrix:
       env:
         - MB_PYTHON_VERSION=3.7
         - PLAT=i686
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.8
+    - os: linux
+      env:
+        - MB_PYTHON_VERSION=3.8
+        - PLAT=i686
     - os: osx
-      language: generic
       env:
         - MB_PYTHON_VERSION=2.7
     - os: osx
-      language: generic
       env:
         - MB_PYTHON_VERSION=3.6
     - os: osx
-      language: generic
       env:
         - MB_PYTHON_VERSION=3.7
+    - os: osx
+      env:
+        - MB_PYTHON_VERSION=3.8
 
 before_install:
   - source multibuild/common_utils.sh
