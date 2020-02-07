@@ -39,6 +39,10 @@ environment:
       PYTHON_VERSION: "2.7"
       PYTHON_ARCH: "64"
 
+# Do not build feature branches with open Pull Requests after the initial
+# opening of a PR.
+skip_branch_with_pr: true
+
 # matrix:
 #   fast_finish: true
 
