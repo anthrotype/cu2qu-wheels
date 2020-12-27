@@ -105,7 +105,7 @@ jobs:
 
   deploy:
     # only run if the commit is tagged...
-    if: startsWith(github.ref, 'refs/tags/')
+    if: startsWith(github.ref, 'refs/tags/v')
     # ... and all build jobs completed successfully
     needs:
         - build_unix
