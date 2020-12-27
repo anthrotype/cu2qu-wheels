@@ -92,7 +92,7 @@ jobs:
     - name: Build wheel
       run: |
         venv\Scripts\activate
-        pip wheel -w wheelhouse --no-cache-dir --no-binary ${PROJECT_NAME} "${PROJECT_NAME}==${PROJECT_VERSION}"
+        pip wheel -w wheelhouse --no-cache-dir --no-binary ${{ env.PROJECT_NAME }} ${{ env.PROJECT_NAME }}==${{ env.PROJECT_VERSION }}
     - name: Install the wheel
       run: |
         venv\Scripts\activate
