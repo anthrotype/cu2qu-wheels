@@ -9,5 +9,5 @@ function pre_build {
 
 function run_tests {
     # The function is called from an empty temporary directory.
-    python -c "import cu2qu; print(cu2qu.__version__)"
+    python ../test_import.py
 }
