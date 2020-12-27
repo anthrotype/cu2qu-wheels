@@ -92,11 +92,14 @@ jobs:
     - name: Build wheel
       run: |
         venv\Scripts\activate
-        pip wheel -w wheelhouse --no-cache-dir --no-binary ${{ env.PROJECT_NAME }} ${{ env.PROJECT_NAME }}==${{ env.PROJECT_VERSION }}
+        pip wheel --no-deps -w wheelhouse --no-cache-dir --no-binary ${{ env.PROJECT_NAME }} ${{ env.PROJECT_NAME }}==${{ env.PROJECT_VERSION }}
     - name: Install the wheel
+      shell: cmd
       run: |
         venv\Scripts\activate
-        pip install --no-index --find-links wheelhouse ${{ env.PROJECT_NAME }}
+        dir /s /b wheelhouse\${{ env.PROJECT_NAME }}*.whl > wheel.pth
+        set /p WHEEL_PATH=<wheel.pth
+        pip install %WHEEL_PATH%
         python test_import.py
     - uses: actions/upload-artifact@v2
       with:
@@ -142,4 +145,4 @@ jobs:
         else
           echo "DEBUG: This is a final release"
         fi
-        twine upload dist/*
+        twine upload dist/${{ env.PROJECT_NAME }}*
