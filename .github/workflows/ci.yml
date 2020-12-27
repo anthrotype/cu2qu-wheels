@@ -92,7 +92,7 @@ jobs:
     - name: Build wheel
       run: |
         venv\Scripts\activate
-        pip wheel --no-deps -w wheelhouse .
+        pip wheel -w wheelhouse --no-binary ${PROJECT_NAME} "${PROJECT_NAME}==${PROJECT_VERSION}"
     - name: Install the wheel
       run: |
         venv\Scripts\activate
