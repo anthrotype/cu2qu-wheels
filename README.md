@@ -1,2 +1,2 @@
 # cu2qu-wheels
-Wheel builder for googlei18n/cu2qu
+Wheel builder for googlefonts/cu2qu
